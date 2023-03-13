@@ -6,7 +6,7 @@
 ./executer.sh
 ```
 
-== Dépendances du Projet
+== Dépendances du projet
 
 - Spring boot et tous les machins qui vont avec
   - spring-boot-starter-data-jpa
