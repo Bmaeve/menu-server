@@ -1,6 +1,7 @@
 name: Workflow test de l'application menu server
 on:
   - push
+  - pull_request
 jobs:
   workflow_menu-server:
     runs-on: ubuntu-22.04
@@ -15,3 +16,4 @@ jobs:
           distribution: 'zulu'
           java-version: '17.0.6'
       - run: mvn compile
+      - run: mvn package
