@@ -1,12 +1,10 @@
-name: Bonjour by a docker
+name: Bonjour by a docker uses efficiently cowsay
 on:
   - push
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/cicd-lectures/gitpod:latest
-      options: --user=root
     steps:
-      - uses: actions/checkout@v3
-      - run: cat readme.md | cowsay
+      - uses: Code-Hex/neo-cowsay-action@v1
+        with:
+          message: Bonjour
