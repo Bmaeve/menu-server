@@ -1,10 +1,15 @@
-name: Bonjour by a docker uses efficiently cowsay
+name: Read readme by a library with an output variable
 on:
   - push
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: juliangruber/read-file-action@v1
+        id: readme
+        with:
+          path: ./readme.md
       - uses: Code-Hex/neo-cowsay-action@v1
         with:
-          message: Bonjour
+          message: "${{ steps.readme.outputs.content }}"
