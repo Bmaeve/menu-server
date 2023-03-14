@@ -14,6 +14,8 @@ import com.cicdlectures.menuserver.dto.MenuDto;
 import com.cicdlectures.menuserver.service.CreateMenuService;
 import com.cicdlectures.menuserver.service.ListMenuService;
 
+import com.cicdlectures.menuserver.repository.MenuRepository;;
+
 @RestController
 public class MenuController {
 
@@ -21,10 +23,13 @@ public class MenuController {
 
   private final ListMenuService listMenuService;
 
+  private final MenuRepository menuRepository;
+
   @Autowired
-  MenuController(CreateMenuService createMenuService, ListMenuService listMenuService) {
+  MenuController(CreateMenuService createMenuService, ListMenuService listMenuService, MenuRepository menuRepository) {
     this.createMenuService = createMenuService;
     this.listMenuService = listMenuService;
+    this.menuRepository = menuRepository;
   }
 
   @GetMapping(path = "/menus", produces = "application/json")
@@ -37,4 +42,11 @@ public class MenuController {
   public MenuDto createMenu(@RequestBody MenuDto menu) {
     return createMenuService.createMenu(menu);
   }
+
+  @DeleteMapping(path = "/menus/{id}", produces = "application/json", consumes = "application/json")
+  @ResponseStatus(HttpStatus.CREATED)
+  public void deleteMenu(@PathVariable long id) {
+    menuRepository.deleteByID(id);
+  }
+
 }
