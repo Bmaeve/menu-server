@@ -17,7 +17,7 @@ import org.springframework.http.ResponseEntity;
 import com.cicdlectures.menuserver.dto.MenuDto;
 import com.cicdlectures.menuserver.service.CreateMenuService;
 import com.cicdlectures.menuserver.service.ListMenuService;
-import com.cicdlectures.menuserver.repository.MenuRepository;;
+import com.cicdlectures.menuserver.repository.MenuRepository;
 
 @RestController
 public class MenuController {
