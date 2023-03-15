@@ -17,3 +17,4 @@ jobs:
           java-version: '17.0.6'
       - run: mvn compile
       - run: mvn package
+      - run: mvn verify
